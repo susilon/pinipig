@@ -497,8 +497,7 @@ let generateApp = (App) => (options) => {
             try {
               wsFunc.close(context)
             } catch (e) {
-              console.log('WS message handler not define in routes')
-              ws.close()
+              console.log('WS message handler not define in routes')              
             }
           },
         })
