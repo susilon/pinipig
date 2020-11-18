@@ -489,7 +489,17 @@ let generateApp = (App) => (options) => {
             }
           },
           close: (ws, code, message) => {
-            console.log('WebSocket closed')
+            let context = {              
+              message,
+              code,
+              ws,
+            }
+            try {
+              wsFunc.close(context)
+            } catch (e) {
+              console.log('WS message handler not define in routes')
+              ws.close()
+            }
           },
         })
       } else {
